@@ -1,0 +1,43 @@
+<div class='row'>
+  <div class='col-md-4'>
+    <h2>Top Scorers All TIme</h2>
+    <table>
+      <th>Name</th>
+      <th>Team</th>
+      <th>Total Points</th>
+      <th>Year</th>
+      <% @points.each do |player| %>
+        <tr><td><%=player.player.name%></td> <td><%=player.player.team.name%></td> <td><%=player.points%></td> <td><%=player.year%></td></tr>
+      <% end %>
+    </table>
+  </div>
+  <div class='col-md-4'>
+    <h4>Team Points All Time</h4>
+    <table>
+      <th>Team</th>
+      <th>Record</th>
+      <th>Total Points</th>
+      <th>Year</th>
+      <%x=1%>
+      <% @teamsPoints.each do |team| %>
+        <tr><td><%=x%>. <%= team.team.name %></td> <td>(<%=team.wins%>-<%=team.losses%>)</td> <td><%=team.points%></td><td><%=team.year%></td></tr>
+        <%x+=1%>
+      <% end %>
+    </table>
+  </div>
+  <div class='col-md-4'>
+    <h4>Team Wins All Time</h4>
+    <table>
+      <th>Team</th>
+      <th>Record</th>
+      <th>Total Points</th>
+      <th>Year</th>
+      <%x=1%>
+      <% @teamsWins.each do |team| %>
+        <tr><td><%=x%>. <%= team.team.name %></td> <td>(<%=team.wins%>-<%=team.losses%>)</td> <td><%=team.points%></td><td><%=team.year%></td></tr>
+        <%x+=1%>
+      <% end %>
+    </table>
+  </div>
+</div>
+  <a href='/'>Home</a>

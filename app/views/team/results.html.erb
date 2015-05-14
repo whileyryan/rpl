@@ -1,0 +1,7 @@
+<% @games.each do |game| %>
+  <%= game.home_team.name %> -> <%= game.home_points %> (<%=Season.where(team_id: game.home_team.id, year: Season.last.year).last.wins%>-<%= Season.where(team_id: game.home_team.id, year: Season.last.year).last.losses %>) @ <%= game.away_team.name %> -> <%= game.away_points %> (<%=Season.where(team_id: game.away_team.id, year: Season.last.year).last.wins%>-<%= Season.where(team_id: game.away_team.id, year: Season.last.year).last.losses %>)
+  <br>
+<% end %>
+
+<a href='/'>Home</a>
+

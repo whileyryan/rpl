@@ -1,0 +1,29 @@
+<div class='row'>
+  <div class='col-md-4'>
+    <h2>Top Scorers</h2>
+    <table>
+      <th>Name</th>
+      <th>Team</th>
+      <th>Total Points</th>
+      <th>Avg. Points</th>
+      <% @points.each do |player| %>
+        <tr><td><%=player.player.name%></td> <td><%=player.player.team.name%></td> <td><%=player.points%></td> <td><%=(player.points/@week).round(3)%></td></tr>
+      <% end %>
+    </table>
+  </div>
+  <div class='col-md-4'>
+    <h4>Team Points</h4>
+    <table>
+      <th>Team</th>
+      <th>Record</th>
+      <th>Total Points</th>
+      <th>Avg. Points</th>
+      <%x=1%>
+      <% @teams.each do |team| %>
+        <tr><td><%=x%>. <%= team.team.name %></td> <td>(<%=team.wins%>-<%=team.losses%>)</td> <td><%=team.points%></td><td><%=(team.points/@week).round(3)%></td></tr>
+        <%x+=1%>
+      <% end %>
+    </table>
+  </div>
+</div>
+  <a href='/'>Home</a>

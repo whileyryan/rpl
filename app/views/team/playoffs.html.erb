@@ -1,0 +1,10 @@
+<h2>Playoffs</h2>
+
+<%@playoffs.each do |team|%>
+  <%=team.home_team.name%> (<%=Season.find_by(team_id: team.home_team, year:@year).wins%>-<%=Season.find_by(team_id: team.home_team, year:@year).losses%>) @  <%=team.away_team.name%> (<%=Season.find_by(team_id: team.away_team, year:@year).wins%>-<%=Season.find_by(team_id: team.away_team, year:@year).losses%>)
+  <br>
+<% end %>
+
+<%= form_tag("/decidePlayoff", method: "post") do %>
+  <%= submit_tag("Play Games") %>
+<% end %>

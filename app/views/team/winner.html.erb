@@ -1,0 +1,7 @@
+<%= @winner.team.name %>(<%=Season.find_by(team_id:@winner.team_id).wins%>-<%=Season.find_by(team_id:@winner.team_id).losses%>)
+
+<a href='/'>Home</a>
+
+<%= form_tag("/newSeason", method: "post") do %>
+  <%= submit_tag("New Season") %>
+<% end %>

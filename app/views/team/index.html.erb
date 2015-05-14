@@ -1,0 +1,22 @@
+<div class='row'>
+  <div class='col-md-4'>
+    <% i = 1 %>
+    <% @seasons.each do |season| %>
+      <%= season.team.name %>: <%=season.wins%>-<%=season.losses%><br>
+      <% if i == 8 %>
+        <hr>
+      <% end %>
+      <% i += 1 %>
+    <% end %>
+  </div>
+  <div class='col-md-6'>
+    
+    <%= form_tag("/playGame", method: "post") do %>
+      <%= submit_tag("Set Up Games") %>
+    <% end %>
+    <a href='/topScorersThisSeason'>Top Scorers</a><br>
+    <a href='/allTime'>All Time</a><br>
+    <a href='/champions'>Winners</a>
+
+  </div>
+</div>

@@ -1,0 +1,9 @@
+<% @games.each do |game| %>
+  <%= game.home_team.name %> (<%=Season.where(team_id: game.home_team.id, year: Season.last.year).last.wins%>-<%= Season.where(team_id: game.home_team.id, year: Season.last.year).last.losses %>) @ <%= game.away_team.name %> (<%=Season.where(team_id: game.away_team.id, year: Season.last.year).last.wins%>-<%= Season.where(team_id: game.away_team.id, year: Season.last.year).last.losses %>)
+  <br>
+<% end %>
+
+<%= form_tag("/decideGame", method: "post") do %>
+  <%= submit_tag("Play Games") %>
+<% end %>
+

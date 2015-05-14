@@ -1,0 +1,8 @@
+<% @playoffs.each do |results| %>
+  <%= results.winner.name %>(<%=Season.where(team_id: results.winner.id, year: Season.last.year).last.wins%>-<%=Season.where(team_id: results.winner.id, year: Season.last.year).last.losses%>) - <%= results.loser.name %>(<%=Season.where(team_id: results.loser.id, year: Season.last.year).last.wins%>-<%=Season.where(team_id: results.loser.id, year: Season.last.year).last.losses%>)<br>
+<% end %> 
+
+<%= form_tag("/playGame", method: "post") do %>
+  <%= submit_tag("Set Up Games") %>
+<% end %>
+

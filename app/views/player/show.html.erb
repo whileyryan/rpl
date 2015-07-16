@@ -1,4 +1,4 @@
-<h2> <%= @player.name %> </h2> <h4> <%= @team.name %><br> Rookie: <%= @player.rookie %>. Retire: <%= @player.rookie+@player.retire %></h4>
+<h2> <%= @player.name %> - <%= @player.mult.round(2) %> </h2> <h4> <%= @team.name %><br> Rookie: <%= @player.rookie %>. Retire: <%= @player.rookie+@player.retire %></h4>
 
 <% @seasons.each do |season| %>
 	<%= season.year %>: <%= season.points %><br>

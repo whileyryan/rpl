@@ -8,7 +8,7 @@ class Season < ActiveRecord::Base
     if @seasonCount == 0
       @lastSeaseon = 1
     else
-      @lastSeaseon = Season.last.year + 1
+      @lastSeaseon = Season.maximum(:year) + 1
     end
     @teams = Team.all
     @teams.each do |team|
@@ -29,10 +29,10 @@ class Season < ActiveRecord::Base
   end
 
   def self.retirePlayers
-    @year = Season.last.year
+    @year = Season.maximum(:year)
     @players = Player.all
     @players.each do |player|
-      if (player.rookie+player.retire) >= @year
+      if (player.rookie+player.retire) == @year
         new_team_id = player.team_id
         Player.find(player.id).update_attributes(playing: 0)
         Season.recruitNewPlayer(new_team_id, @year)

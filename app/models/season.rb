@@ -32,7 +32,7 @@ class Season < ActiveRecord::Base
     @year = Season.last.year
     @players = Player.all
     @players.each do |player|
-      if (player.rookie+player.retire) == @year
+      if (player.rookie+player.retire) >= @year
         new_team_id = player.team_id
         Player.find(player.id).update_attributes(playing: 0)
         Season.recruitNewPlayer(new_team_id, @year)

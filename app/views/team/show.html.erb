@@ -1,0 +1,7 @@
+<h2><%= @team.name %></h2>
+<%@players.each do |player| %>
+	<a href="/players/<%=player.id%>"><%= player.name %></a> - <%= player.mult.round(2)%>. Rookie Season: <%= player.rookie %>.  Retires: <%= player.rookie+player.retire %><br>
+<% end %>
+<hr>
+
+<a href='/'>Home</a>

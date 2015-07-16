@@ -19,5 +19,9 @@ Rails.application.routes.draw do
   get '/allTime' =>'team#allTime'
 
   get '/champions' => 'team#champions'
-  
+
+  get '/teams/:id' => 'team#show'
+
+  get '/players/:id' => 'player#show'
+
 end

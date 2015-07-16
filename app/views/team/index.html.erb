@@ -2,7 +2,7 @@
   <div class='col-md-4'>
     <% i = 1 %>
     <% @seasons.each do |season| %>
-      <%= season.team.name %>: <%=season.wins%>-<%=season.losses%><br>
+      <a href="/teams/<%=season.team.id%>"><%= season.team.name %></a>: <%=season.wins%>-<%=season.losses%><br>
       <% if i == 8 %>
         <hr>
       <% end %>

@@ -3,6 +3,16 @@ class TeamController < ApplicationController
     @seasons = Season.where(year: Season.last.year).order(wins: :desc, points: :desc)
   end
 
+  def show
+    @players = Team.find(params[:id]).players.where(playing: 1).order(mult: :desc)
+    @team = Team.find(params[:id])
+    @topPlayersHold = Player.where(team_id: params[:id])
+    playerArray = []
+    @topPlayersHold.each do |p|
+      playerArray<<p.id
+    end
+    @topPlayers = Point.where(:id=>playerArray).order(points: :desc).first(5)
+  end
 
   def game
     @season = Season.where(year: Season.last.year).last.year

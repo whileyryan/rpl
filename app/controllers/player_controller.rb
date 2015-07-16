@@ -7,7 +7,7 @@ class PlayerController < ApplicationController
 
 	def dismiss
 		p Season.maximum(:year)
-		Player.find(params[:id]).update_attributes(:retire => Season.maximum(:year))
+		Player.find(params[:id]).update_attributes(:retire => 0)
 		redirect_to "/players/#{params[:id]}"
 	end
 end

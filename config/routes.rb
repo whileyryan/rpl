@@ -24,4 +24,6 @@ Rails.application.routes.draw do
 
   get '/players/:id' => 'player#show'
 
+  get '/dismiss/:id' => 'player#dismiss'
+
 end
